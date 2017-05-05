@@ -34,6 +34,11 @@ get('/alphabetize_vols') do
   erb(:order_volunteer)
 end
 
+get('/hours_vols') do
+  @hours_volunteers = Volunteer.order_hours
+  erb(:order_volunteer_hours)
+end
+
 get('/projects/:id') do
   @project = Project.find(params.fetch("id").to_i)
   @volunteers = Volunteer.all

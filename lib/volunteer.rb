@@ -72,4 +72,8 @@ class Volunteer
   def self.order
     DB.exec("SELECT * FROM volunteers ORDER BY name").to_a
   end
+
+  def self.order_hours
+    DB.exec("SELECT * FROM volunteers ORDER BY hours").to_a
+  end
 end
