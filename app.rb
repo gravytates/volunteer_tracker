@@ -24,6 +24,11 @@ post('/projects/new') do
   erb(:index)
 end
 
+get('/alphabetize') do
+  @alpha_projects = Project.order
+  erb(:order_project)
+end
+
 get('/projects/:id') do
   @project = Project.find(params.fetch("id").to_i)
   @volunteers = Volunteer.all
@@ -48,7 +53,7 @@ delete('/projects/:id/delete') do
 end
 
 post('/volunteers/new') do
-  name = params.fetch('name')
+  name = params.fetch('v_name')
   id = nil
   project_id = params.fetch("project_id").to_i
   @volunteer = Volunteer.new(:name => name, :id => id, :project_id => project_id)

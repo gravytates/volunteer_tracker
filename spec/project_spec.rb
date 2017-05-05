@@ -73,4 +73,14 @@ describe(Project) do
       expect(test_project.volunteers).to(eq([test_volunteer, test_volunteer2]))
     end
   end
+
+  describe ".order" do
+    it("lets you sort projects alphabetically") do
+      project = Project.new({:name => "Riparian Restoration", :id => nil})
+      project.save
+      project2 = Project.new({:name => "Graffiti removal", :id => nil})
+      project2.save
+      expect(Project.order).to(eq([{"id"=>"95", "name"=>"Graffiti removal"}, {"id"=>"94", "name"=>"Riparian Restoration"}]))
+    end
+  end
 end

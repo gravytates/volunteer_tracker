@@ -70,4 +70,8 @@ class Project
     end
     projects
   end
+
+  def self.order
+    DB.exec("SELECT * FROM projects ORDER BY name").to_a
+  end
 end
