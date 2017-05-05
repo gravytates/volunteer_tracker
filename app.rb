@@ -29,6 +29,11 @@ get('/alphabetize') do
   erb(:order_project)
 end
 
+get('/alphabetize_vols') do
+  @alpha_volunteers = Volunteer.order
+  erb(:order_volunteer)
+end
+
 get('/projects/:id') do
   @project = Project.find(params.fetch("id").to_i)
   @volunteers = Volunteer.all

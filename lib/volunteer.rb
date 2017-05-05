@@ -59,4 +59,8 @@ class Volunteer
     end
     volunteers
   end
+
+  def self.order
+    DB.exec("SELECT * FROM volunteers ORDER BY name").to_a
+  end
 end

@@ -39,6 +39,7 @@
     <form action="/alphabetize">
       <button type="submit" class="btn btn-success" name="button">alphabetically</button>
     </form>
+    <br>
     <ul>
       <% @projects.each do |project| %>
       <li><a href="/projects/<%= project.id() %>"><%= project.name %></a></li>
@@ -54,6 +55,10 @@
 
     <% if @volunteers.any? %>
     <p>Current Volunteers</p>
+    <form action="/alphabetize_vols">
+      <button type="submit" class="btn btn-success" name="button">alphabetically</button>
+    </form>
+    <br>
 
     <ul>
       <% @volunteers.each do |volunteer| %>

@@ -1,0 +1,11 @@
+<h3>Volunteer Alphabet</h3>
+
+<ul>
+  <% @alpha_volunteers.each do |volunteer| %>
+  <li><a href="/volunteers/<%= volunteer['id'] %>"><%= volunteer['name'] %></a></li>
+  <% end %>
+</ul>
+
+<form action="/">
+  <button type="submit" class="btn btn-info" name="button">back</button>
+</form>
