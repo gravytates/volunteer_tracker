@@ -25,4 +25,20 @@ class Project
   def ==(another_project)
     (self.name == another_project.name) & (self.id == another_project.id)
   end
+
+
+  def self.find(id)
+    found_project = nil
+    Project.all.each do |project|
+      if project.id == id
+        found_project = project
+      end
+    end
+    found_project
+  end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM projects WHERE id = #{self.id};")
+    DB.exec("DELETE FROM volunteers WHERE project_id = #{self.id};")
+  end
 end

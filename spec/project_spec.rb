@@ -30,4 +30,26 @@ describe(Project) do
       expect(project1).to(eq(project2))
     end
   end
+
+  describe "#delete" do
+    it("lets you delete a project from the database") do
+      project = Project.new({:name => "Riparian Restoration", :id => nil})
+      project.save
+      project2 = Project.new({:name => "Graffiti removal", :id => nil})
+      project2.save
+      project.delete
+      expect(Project.all).to(eq([project2]))
+    end
+
+    it("deletes a project's volunteers from the database") do
+      project = Project.new({:name => "Riparian Restoration", :id => nil})
+      project.save
+      volunteer = Volunteer.new({:name => "Fred", :project_id => project.id, :id => nil})
+      volunteer.save
+      volunteer2 = Volunteer.new({:name => "Sara", :project_id => project.id, :id => nil})
+      volunteer2.save
+      project.delete
+      expect(Volunteer.all).to(eq([]))
+    end
+  end
 end
