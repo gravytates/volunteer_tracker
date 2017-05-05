@@ -59,4 +59,15 @@ class Project
     end
     project_volunteers
   end
+
+  def self.project_search(query)
+    found_projects = DB.exec("SELECT * FROM projects WHERE name LIKE '%#{query}%';")
+    projects = []
+    found_projects.each() do |project|
+      name = project.fetch('name')
+      id = project.fetch('id').to_i
+      projects.push(Project.new({:name => name, :id => id}))
+    end
+    projects
+  end
 end

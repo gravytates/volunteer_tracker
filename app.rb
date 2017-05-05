@@ -79,3 +79,9 @@ delete('/volunteers/:id/delete') do
   volunteer.delete
   erb(:project)
 end
+
+get('/search_stuff') do
+  project_search = params.fetch('parameter')
+  @project_results = Project.project_search(project_search)
+  erb(:project_searches)
+end

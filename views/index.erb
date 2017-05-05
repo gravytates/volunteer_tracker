@@ -1,22 +1,39 @@
 <h3>Volunteer Tracking</h3>
 
-<div class="projects">
-  <p>Add a project</p>
-  <form action="/projects/new" method="post">
-  <label for="name">name</label>
-  <input type="text" name="name" required>
-  <br><br>
-  <button class="btn btn-info" type="submit" name="button">add project</button>
-</form>
+<div class="row">
+  <div class="col-md-4">
+    <p>Add a project</p>
+    <form action="/projects/new" method="post">
+      <label for="name">name</label>
+      <input type="text" name="name" required>
+      <br><br>
+      <button class="btn btn-info" type="submit" name="button">add project</button>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <p>Search projects</p>
+    <form action="/search_stuff">
+      <input type="text" name="parameter" required>
+      <br>
+      <br>
+      <button class="btn btn-default" type="submit" name="button">search</button>
+    </form>
+  </div>
+</div>
 <hr>
 
-<% if @projects.any? %>
-<p>Current projects</p>
+<div class="row">
+  <div class="col-md-4">
 
-<ul>
-  <% @projects.each do |project| %>
-  <li><a href="/projects/<%= project.id() %>"><%= project.name %></a></li>
-  <% end %>
-</ul>
-<% end %>
+    <% if @projects.any? %>
+    <p>Current projects</p>
+
+    <ul>
+      <% @projects.each do |project| %>
+      <li><a href="/projects/<%= project.id() %>"><%= project.name %></a></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+  </div>
 </div>
