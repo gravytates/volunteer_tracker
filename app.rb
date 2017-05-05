@@ -24,6 +24,7 @@ end
 
 get('/projects/:id') do
   @project = Project.find(params.fetch("id").to_i)
+  @volunteers = Volunteer.all
   erb(:project)
 end
 
@@ -31,8 +32,10 @@ patch('/projects/:id/edit') do
   project = Project.find(params.fetch("id").to_i)
   name = params.fetch('name')
   project.update({:name => name})
-  @projects = Project.all
-  erb(:index)
+  @project = Project.find(params.fetch('id').to_i)
+  @volunteers = Volunteer.all
+  # @projects = Project.all
+  erb(:project)
 end
 
 delete('/projects/:id/delete') do
@@ -40,4 +43,15 @@ delete('/projects/:id/delete') do
   project.delete
   @projects = Project.all
   erb(:index)
+end
+
+post('/volunteers/new') do
+  name = params.fetch('name')
+  id = nil
+  project_id = params.fetch("project_id").to_i
+  @volunteer = Volunteer.new(:name => name, :id => id, :project_id => project_id)
+  @project = Project.find(project_id)
+  @volunteer.save
+  @volunteers = Volunteer.all
+  erb(:project)
 end

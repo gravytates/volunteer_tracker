@@ -61,4 +61,16 @@ describe(Project) do
       expect(project.name).to(eq("Mudfest"))
     end
   end
+
+  describe("#project") do
+    it('returns an array of volunteers for that project') do
+      test_project = Project.new({:name => 'Riparian Restoration', :id => nil})
+      test_project.save
+      test_volunteer = Volunteer.new({:name => 'Fred', :project_id => test_project.id, :id => nil})
+      test_volunteer.save
+      test_volunteer2 = Volunteer.new({:name => 'Frederick', :project_id => test_project.id, :id => nil})
+      test_volunteer2.save
+      expect(test_project.volunteers).to(eq([test_volunteer, test_volunteer2]))
+    end
+  end
 end
