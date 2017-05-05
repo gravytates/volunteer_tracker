@@ -4,6 +4,7 @@ Ruby week 3 code review covering database basics and psql
 
 ## Description
 
+This website is built for the humble non-profit employee! You can create, view, update, and delete projects! You can create volunteer profiles and assign them to projects as well to help keep track of progress. Website uses postgres and psql for databases and data queries.
 
 ### Prerequisites
 
@@ -12,10 +13,11 @@ Examples: Chrome, Safari
 
 Ruby 2.2.2
 Bundler
+Postgres
 
 ### Installing
 
-Installation is not quick, nor particularly easy. First ensure you have Postgres installed.
+Installation is not quick, nor particularly easy. First ensure you have Postgres installed. Then:
 
 * Navigate to terminal and run the following commands to set up your databases:
   * CREATE DATABASE volunteer_tracker;
@@ -24,9 +26,7 @@ Installation is not quick, nor particularly easy. First ensure you have Postgres
   * CREATE TABLE volunteers (id serial PRIMARY KEY, name varchar);
   * CREATE DATABASE volunteer_tracker_test with template volunteer_tracker;
 
-
-
-First clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing '$ruby app.rb'. If you chose to clone the repository, after you run 'app.rb' you will need to copy the localhost path into your web browser. The standard localhost for Sinatra is port 4567
+Second, clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing '$ruby app.rb'. Now just copy the localhost path into your web browser. The standard localhost for Sinatra is port 4567 (eg: localhost:4567)
 
 ## Built With
 
