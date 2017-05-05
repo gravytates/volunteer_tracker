@@ -1,8 +1,10 @@
 class Volunteer
-  attr_reader :name, :project_id, :id
+  attr_reader :name, :hours, :project_id, :id
 
   def initialize(attributes)
     @name = attributes.fetch :name
+# binding.pry
+    @hours = attributes.fetch(:hours).to_i
     @project_id = attributes.fetch :project_id
     @id = attributes.fetch :id
   end
@@ -12,15 +14,16 @@ class Volunteer
     volunteers = []
     returned_volunteers.each do |volunteer|
       name = volunteer.fetch "name"
+      hours = volunteer.fetch("hours").to_i
       project_id = volunteer.fetch("project_id").to_i
       id = volunteer.fetch("id").to_i
-      volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
+      volunteers.push(Volunteer.new({:name => name, :hours => hours, :project_id => project_id, :id => id}))
     end
     volunteers
   end
 
   def save
-    result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{project_id}) RETURNING id;")
+    result = DB.exec("INSERT INTO volunteers (name, hours, project_id) VALUES ('#{@name}', #{hours}, #{project_id}) RETURNING id;")
     @id = result.first.fetch("id").to_i
   end
 
@@ -36,6 +39,12 @@ class Volunteer
     @name = attributes.fetch :name
     @id = self.id
     DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
+  def update_hours(attributes)
+    @hours = attributes.fetch :hours
+    @id = self.id
+    DB.exec("UPDATE volunteers SET hours = '#{@hours}' WHERE id = #{@id};")
   end
 
   def self.find(id)
