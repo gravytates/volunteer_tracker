@@ -1,0 +1,11 @@
+<h3>volunteer search results</h3>
+
+<ul>
+  <% @volunteer_results.each do |volunteer| %>
+  <li><a href="/volunteers/<%= volunteer.id() %>"><%= volunteer.name %></a></li>
+  <% end %>
+</ul>
+
+<form action="/">
+  <button type="submit" class="btn btn-info" name="button">back</button>
+</form>

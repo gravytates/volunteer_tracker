@@ -88,3 +88,9 @@ get('/search_stuff') do
   @project_results = Project.project_search(project_search)
   erb(:project_searches)
 end
+
+get('/volunteer_search') do
+  volunteer_search = params.fetch('search_peeps')
+  @volunteer_results = Volunteer.volunteer_search(volunteer_search)
+  erb(:volunteer_searches)
+end
