@@ -61,6 +61,10 @@ class Project
     project_volunteers
   end
 
+  def hours
+    DB.exec("SELECT SUM(hours) FROM volunteers WHERE project_id = #{self.id};")
+  end
+
   def self.project_search(query)
     found_projects = DB.exec("SELECT * FROM projects WHERE name LIKE '%#{query}%';")
     projects = []

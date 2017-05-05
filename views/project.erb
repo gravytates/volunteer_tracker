@@ -41,13 +41,16 @@
     <hr>
 
     <% if @project.volunteers.any? %>
-    <p>current volunteers for project</p>
+        <p>Total hours volunteered</p>
+          <%= @project.hours[0]["sum"] %>
 
-    <ul>
-      <% @project.volunteers.each do |volunteer| %>
-      <li><a href="/volunteers/<%= volunteer.id() %>"><%= volunteer.name %></a></li>
-      <% end %>
-    </ul>
+      <p>current volunteers for project</p>
+
+      <ul>
+        <% @project.volunteers.each do |volunteer| %>
+        <li><a href="/volunteers/<%= volunteer.id() %>"><%= volunteer.name %></a></li>
+        <% end %>
+      </ul>
     <% end %>
     </div>
   </div>

@@ -50,6 +50,7 @@ patch('/projects/:id/edit') do
   name = params.fetch('name')
   project.update({:name => name})
   @project = Project.find(params.fetch('id').to_i)
+  @project_hours = @project.hours
   @volunteers = Volunteer.all
   erb(:project)
 end
