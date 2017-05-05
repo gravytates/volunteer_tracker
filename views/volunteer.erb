@@ -5,14 +5,27 @@
   <div class="col-md-6">
     <h3><%= @volunteer.name %></h3>
     <h3>current project- <em><%= @project.name %></em></h3>
+    <h3>hours contributed- <%= @volunteer.hours %></h3>
+
 
     <form action="/volunteers/<%= @volunteer.id %>/edit" method="post">
       <input name="_method" type="hidden" value="patch">
-      <label for="name">update volunteer's name</label>
+      <label for="name">update name</label>
       <br>
       <input type="text" name="name" value="">
       <br><br>
-      <button class="btn btn-success" type="submit">edit</button>
+      <button class="btn btn-success" type="submit">edit name</button>
+    </form>
+
+    <br>
+
+    <form action="/volunteers/<%= @volunteer.id %>/add_hours" method="post">
+      <input name="_method" type="hidden" value="patch">
+      <label for="name">update hours of contribution</label>
+      <br>
+      <input type="number" name="hours" value="">
+      <br><br>
+      <button class="btn btn-success" type="submit">add hours</button>
     </form>
 
     <br>
