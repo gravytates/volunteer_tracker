@@ -27,4 +27,8 @@ class Volunteer
   def ==(another_volunteer)
     (self.name == another_volunteer.name) & (self.project_id == another_volunteer.project_id)
   end
+
+  def delete
+    DB.exec("DELETE FROM volunteers WHERE id = #{self.id};")
+  end
 end
