@@ -19,6 +19,15 @@
       <button class="btn btn-default" type="submit" name="button">search</button>
     </form>
   </div>
+  <div class="col-md-4">
+    <p>Search volunteers</p>
+    <form action="/volunteer_search">
+      <input type="text" name="search_peeps" required>
+      <br>
+      <br>
+      <button class="btn btn-default" type="submit" name="button">search</button>
+    </form>
+  </div>
 </div>
 <hr>
 
@@ -34,6 +43,20 @@
       <% end %>
     </ul>
     <% end %>
+  </div>
+  <div class="col-md-4">
 
+  </div>
+  <div class="col-md-4">
+
+    <% if @volunteers.any? %>
+    <p>Current Volunteers</p>
+
+    <ul>
+      <% @volunteers.each do |volunteer| %>
+      <li><a href="/volunteers/<%= volunteer.id() %>"><%= volunteer.name %></a></li>
+      <% end %>
+    </ul>
+    <% end %>
   </div>
 </div>

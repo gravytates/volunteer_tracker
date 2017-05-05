@@ -10,6 +10,7 @@ DB = PG.connect({:dbname => "volunteer_tracker"})
 
 get('/') do
   @projects = Project.all
+  @volunteers = Volunteer.all
   erb(:index)
 end
 
@@ -19,6 +20,7 @@ post('/projects/new') do
   @project = Project.new(:name => name, :id => nil)
   @project.save
   @projects = Project.all
+  @volunteers = Volunteer.all
   erb(:index)
 end
 
@@ -41,6 +43,7 @@ delete('/projects/:id/delete') do
   project = Project.find(params.fetch("id").to_i)
   project.delete
   @projects = Project.all
+  @volunteers = Volunteer.all
   erb(:index)
 end
 
