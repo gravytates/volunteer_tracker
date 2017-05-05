@@ -52,4 +52,13 @@ describe(Project) do
       expect(Volunteer.all).to(eq([]))
     end
   end
+
+  describe "#update" do
+    it("lets you update projects in the database") do
+      project = Project.new({:name => "Riparian Restoration", :id => nil})
+      project.save
+      project.update({:name => "Mudfest"})
+      expect(project.name).to(eq("Mudfest"))
+    end
+  end
 end
