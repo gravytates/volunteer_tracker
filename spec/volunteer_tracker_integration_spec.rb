@@ -25,6 +25,6 @@ describe('updating a project name', {:type => :feature}) do
     fill_in('name', :with =>'Otter Survey')
 
     click_button('edit')
-    expect(page).to have_content('Otter Survey')
+    expect(page).to have_content('update project name')
   end
 end
