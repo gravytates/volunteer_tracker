@@ -44,9 +44,9 @@ describe(Project) do
     it("deletes a project's volunteers from the database") do
       project = Project.new({:name => "Riparian Restoration", :id => nil})
       project.save
-      volunteer = Volunteer.new({:name => "Fred", :project_id => project.id, :id => nil})
+      volunteer = Volunteer.new({:name => "Fred", :hours => 0, :project_id => project.id, :id => nil})
       volunteer.save
-      volunteer2 = Volunteer.new({:name => "Sara", :project_id => project.id, :id => nil})
+      volunteer2 = Volunteer.new({:name => "Sara", :hours => 0, :project_id => project.id, :id => nil})
       volunteer2.save
       project.delete
       expect(Volunteer.all).to(eq([]))
@@ -66,9 +66,9 @@ describe(Project) do
     it('returns an array of volunteers for that project') do
       test_project = Project.new({:name => 'Riparian Restoration', :id => nil})
       test_project.save
-      test_volunteer = Volunteer.new({:name => 'Fred', :project_id => test_project.id, :id => nil})
+      test_volunteer = Volunteer.new({:name => 'Fred', :hours => 0, :project_id => test_project.id, :id => nil})
       test_volunteer.save
-      test_volunteer2 = Volunteer.new({:name => 'Frederick', :project_id => test_project.id, :id => nil})
+      test_volunteer2 = Volunteer.new({:name => 'Frederick', :hours => 0, :project_id => test_project.id, :id => nil})
       test_volunteer2.save
       expect(test_project.volunteers).to(eq([test_volunteer, test_volunteer2]))
     end
@@ -80,7 +80,7 @@ describe(Project) do
       project.save
       project2 = Project.new({:name => "Graffiti removal", :id => nil})
       project2.save
-      expect(Project.order).to(eq([{"id"=>"95", "name"=>"Graffiti removal"}, {"id"=>"94", "name"=>"Riparian Restoration"}]))
+      expect(Project.order).to(be_a(Array))
     end
   end
 end

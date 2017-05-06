@@ -9,7 +9,7 @@ describe(Volunteer) do
 
   describe "#save" do
     it("adds a volunteer to the array of saved volunteers") do
-      test_volunteer = Volunteer.new({:name => "Fred", :project_id => 1, :id => nil})
+      test_volunteer = Volunteer.new({:name => "Fred", :hours => 0, :project_id => 1, :id => nil})
       test_volunteer.save
       expect(Volunteer.all).to(eq([test_volunteer]))
     end
@@ -17,31 +17,31 @@ describe(Volunteer) do
 
   describe "#name" do
     it("lets you read the name out") do
-      test_volunteer = Volunteer.new({:name => "Fred", :project_id => 1, :id => nil})
+      test_volunteer = Volunteer.new({:name => "Fred", :hours => 0, :project_id => 1, :id => nil})
       expect(test_volunteer.name).to(eq("Fred"))
     end
   end
 
   describe "#project_id" do
     it('lets you read the project ID out') do
-      test_volunteer = Volunteer.new({:name => "Fred", :project_id => 1, :id => nil})
+      test_volunteer = Volunteer.new({:name => "Fred", :hours => 0, :project_id => 1, :id => nil})
       expect(test_volunteer.project_id).to(eq(1))
     end
   end
 
   describe "#==" do
     it("is the same volunteer if it has the same name") do
-      volunteer1 = Volunteer.new({:name => "Fred", :project_id => 1, :id => nil})
-      volunteer2 = Volunteer.new({:name => "Fred", :project_id => 1, :id => nil})
+      volunteer1 = Volunteer.new({:name => "Fred", :hours => 0, :project_id => 1, :id => nil})
+      volunteer2 = Volunteer.new({:name => "Fred", :hours => 0, :project_id => 1, :id => nil})
       expect(volunteer1).to(eq(volunteer2))
     end
   end
 
   describe "#delete" do
     it("lets you delete a volunteer from the database") do
-      volunteer = Volunteer.new({:name => "Fred", :project_id => 1, :id => nil})
+      volunteer = Volunteer.new({:name => "Fred", :hours => 0, :project_id => 1, :id => nil})
       volunteer.save
-      volunteer2 = Volunteer.new({:name => "Joe", :project_id => 1, :id => nil})
+      volunteer2 = Volunteer.new({:name => "Joe", :hours => 0, :project_id => 1, :id => nil})
       volunteer2.save
       volunteer.delete
       expect(Volunteer.all).to(eq([volunteer2]))
@@ -50,7 +50,7 @@ describe(Volunteer) do
 
   describe "#update" do
     it("lets you update volunteers in the database") do
-      volunteer = Volunteer.new({:name => "Freddy", :project_id => 1, :id => nil})
+      volunteer = Volunteer.new({:name => "Freddy", :hours => 0, :project_id => 1, :id => nil})
       volunteer.save
       volunteer.update({:name => "Frederick"})
       expect(volunteer.name).to(eq("Frederick"))

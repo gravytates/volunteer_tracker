@@ -18,9 +18,9 @@ end
 
 describe('updating a project name', {:type => :feature}) do
   it('allows a user to change a project name') do
-    @project = Project.new({:name => 'Riparian Restoration', :id => nil})
-    @project.save
-    visit("/projects/#{@project.id}")
+    @project1 = Project.new({:name => 'Riparian Restoration', :id => nil})
+    @project1.save
+    visit("/projects/#{@project1.id}")
 
     fill_in('name', :with =>'Otter Survey')
 
