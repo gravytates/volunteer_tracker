@@ -79,4 +79,13 @@ class Project
   def self.order
     DB.exec("SELECT * FROM projects ORDER BY name").to_a
   end
+
+  def self.order_hours
+    projects = Project.all
+    projects.each do |project|
+      project.hours[0]["sum"]
+    end
+    projects.sort!
+  end
+
 end

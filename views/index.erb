@@ -40,6 +40,12 @@
       <button type="submit" class="btn btn-success" name="button">alphabetically</button>
     </form>
     <br>
+
+    <!-- Functionality not yet working -->
+    <!-- <form action="/hours_projects">
+      <button type="submit" class="btn btn-danger" name="button">by hours</button>
+    </form> -->
+    <br>
     <ul>
       <% @projects.each do |project| %>
       <li><a href="/projects/<%= project.id() %>"><%= project.name %></a></li>
@@ -60,7 +66,7 @@
     </form>
 
     <br>
-    
+
     <form action="/hours_vols">
       <button type="submit" class="btn btn-danger" name="button">by hours</button>
     </form>

@@ -1,0 +1,11 @@
+<h3>Project Hours</h3>
+
+<ul>
+  <% @hours_projects.each do |project| %>
+  <li><a href="/projects/<%= project['id'] %>"><%= project['name'] %>, hours- <%= project['hours'] %></a></li>
+  <% end %>
+</ul>
+
+<form action="/">
+  <button type="submit" class="btn btn-info" name="button">back</button>
+</form>

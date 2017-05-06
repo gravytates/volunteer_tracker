@@ -4,7 +4,7 @@ Ruby week 3 code review covering database basics and psql
 
 ## Description
 
-This website is built for the humble non-profit employee! You can create, view, update, and delete projects! You can create volunteer profiles and assign them to projects as well to help keep track of progress. Website uses postgres and psql for databases and data queries.
+This website is built for the humble non-profit employee! You can create, view, update, and delete projects! You can create volunteer profiles and assign them to projects as well to help keep track of progress. Hours can be added and edited for an individual volunteer, and project hours are totaled as well. Sort volunteers and projects alphabetically or by hours contributed. Website uses postgres and psql for databases and data queries.
 
 ### Prerequisites
 
@@ -45,14 +45,17 @@ Full list of gems can be found in the Gemfile
 
 | behavior |  input   |  output  |
 |----------|:--------:|:--------:|
-<!--SPECS GO HERE-->
+|add project| project name: "riparian restoration"| |new project: riparian restoration|
+|add volunteer| volunteer name: "Christine"| Volunteer: "Christine" |
+|add hours| update hours: 8 | hours volunteered: 8 |
+
 
 ## Authors
 
 * Grady L Shelton
 
 ## Known Bugs
-No known bugs
+Names with apostrophes are not yet welcomed.
 
 ## Contact
 
