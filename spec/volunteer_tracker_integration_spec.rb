@@ -68,8 +68,8 @@ describe('sorting projects alphabetically', {:type => :feature}) do
   end
 end
 
-describe('sorting projects alphabetically', {:type => :feature}) do
-  it('allows a user view projects alphabetically') do
+describe('search projects by name', {:type => :feature}) do
+  it('allows a user search projects by name') do
     @project1 = Project.new({:name => 'Riparian Restoration', :id => nil})
     @project1.save
     @project2 = Project.new({:name => 'Alligator wrangling', :id => nil})
@@ -78,5 +78,18 @@ describe('sorting projects alphabetically', {:type => :feature}) do
     fill_in('parameter', :with => "Rip")
     click_button('find projects')
     expect(page).to have_content('Riparian Restoration')
+  end
+end
+
+describe('search volunteers', {:type => :feature}) do
+  it('allows a user to search for volunteers by name') do
+    volunteer = Volunteer.new({:name => "Joe", :hours => 0, :project_id => 1, :id => nil})
+    volunteer.save
+    volunteer2 = Volunteer.new({:name => "Fred", :hours => 0, :project_id => 1, :id => nil})
+    volunteer2.save
+    visit("/")
+    fill_in('search_peeps', :with => "Fr")
+    click_button('find volunteers')
+    expect(page).to have_content('Fred')
   end
 end
