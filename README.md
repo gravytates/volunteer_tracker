@@ -45,9 +45,12 @@ Full list of gems can be found in the Gemfile
 
 | behavior |  input   |  output  |
 |----------|:--------:|:--------:|
-|add project| project name: "riparian restoration"| |new project: riparian restoration|
+|add project| project name: "riparian restoration"|new project: riparian restoration|
 |add volunteer| volunteer name: "Christine"| Volunteer: "Christine" |
 |add hours| update hours: 8 | hours volunteered: 8 |
+|view projects alphabetically| click alphabetize | Projects: algae suppression, garbage pickup, riparian restoration|
+|view volunteers alphabetically| click 'alphabetize' | Volunteers: Abby, Becky, Ben, Fred, Jack, John|
+|view volunteers by hours contributed| click 'by hours' | Volunteers: Fred hours- 1, Ben hours- 3, Becky hours- 5, John hours- 6, Jack hours- 10, Abby hours- 15|
 
 
 ## Authors
