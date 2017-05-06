@@ -51,6 +51,11 @@ Full list of gems can be found in the Gemfile
 |view projects alphabetically| click alphabetize | Projects: algae suppression, garbage pickup, riparian restoration|
 |view volunteers alphabetically| click 'alphabetize' | Volunteers: Abby, Becky, Ben, Fred, Jack, John|
 |view volunteers by hours contributed| click 'by hours' | Volunteers: Fred hours- 1, Ben hours- 3, Becky hours- 5, John hours- 6, Jack hours- 10, Abby hours- 15|
+|search volunteers by name| enter 'Fr' | Matches: Fred, Frank |
+|search projects by name | enter 'feed' | Matches: feed cats, feed the homeless |
+
+## Screenshot
+![Image of Homepage Screenshot](public/img/screen-shot.png)
 
 
 ## Authors
