@@ -23,7 +23,7 @@ Installation is not quick, nor particularly easy. First ensure you have Postgres
   * CREATE DATABASE volunteer_tracker;
   * \c volunteer_tracker;
   * CREATE TABLE projects (id serial PRIMARY KEY, name varchar);
-  * CREATE TABLE volunteers (id serial PRIMARY KEY, name varchar);
+  * CREATE TABLE volunteers (id serial PRIMARY KEY, name varchar, hours int, project_id int);
   * CREATE DATABASE volunteer_tracker_test with template volunteer_tracker;
 
 Second, clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing '$ruby app.rb'. Now just copy the localhost path into your web browser. The standard localhost for Sinatra is port 4567 (eg: localhost:4567)
