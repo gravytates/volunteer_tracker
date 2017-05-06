@@ -17,7 +17,7 @@ Postgres
 
 ### Installing
 
-Installation is not quick, nor particularly easy. First ensure you have Postgres installed. Then:
+Installation is not quick, nor particularly easy. First ensure you have Postgres installed and running in the background. Then:
 
 * Navigate to terminal and run the following commands to set up your databases:
   * CREATE DATABASE volunteer_tracker;
