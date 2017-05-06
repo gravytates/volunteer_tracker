@@ -28,3 +28,16 @@ describe('updating a project name', {:type => :feature}) do
     expect(page).to have_content('update project name')
   end
 end
+
+describe('adding a volunteer', {:type => :feature}) do
+  it('allows a user to change a project name') do
+    @project1 = Project.new({:name => 'Riparian Restoration', :id => nil})
+    @project1.save
+    visit("/projects/#{@project1.id}")
+
+    fill_in('name', :with =>'Fred')
+
+    click_button('add volunteer')
+    expect(page).to have_content('Riparian Restoration')
+  end
+end
