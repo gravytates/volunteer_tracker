@@ -41,3 +41,42 @@ describe('adding a volunteer', {:type => :feature}) do
     expect(page).to have_content('Riparian Restoration')
   end
 end
+
+describe('adding a volunteer', {:type => :feature}) do
+  it('allows a user to change a project name') do
+    @project1 = Project.new({:name => 'Riparian Restoration', :id => nil})
+    @project1.save
+    visit("/projects/#{@project1.id}")
+
+    fill_in('name', :with =>'Fred')
+
+    click_button('add volunteer')
+    expect(page).to have_content('Riparian Restoration')
+  end
+end
+
+describe('sorting projects alphabetically', {:type => :feature}) do
+  it('allows a user view projects alphabetically') do
+    @project1 = Project.new({:name => 'Riparian Restoration', :id => nil})
+    @project1.save
+    @project2 = Project.new({:name => 'Alligator wrangling', :id => nil})
+    @project2.save
+    visit("/")
+
+    click_button('alphabetically')
+    expect(page).to have_content('Alligator wrangling')
+  end
+end
+
+describe('sorting projects alphabetically', {:type => :feature}) do
+  it('allows a user view projects alphabetically') do
+    @project1 = Project.new({:name => 'Riparian Restoration', :id => nil})
+    @project1.save
+    @project2 = Project.new({:name => 'Alligator wrangling', :id => nil})
+    @project2.save
+    visit("/")
+    fill_in('parameter', :with => "Rip")
+    click_button('find projects')
+    expect(page).to have_content('Riparian Restoration')
+  end
+end
