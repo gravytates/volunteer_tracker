@@ -68,6 +68,19 @@ describe('sorting projects alphabetically', {:type => :feature}) do
   end
 end
 
+describe('sorting volunteers alphabetically', {:type => :feature}) do
+  it('allows a user view volunteers alphabetically') do
+    volunteer = Volunteer.new({:name => "Joe", :hours => 0, :project_id => 1, :id => nil})
+    volunteer.save
+    volunteer2 = Volunteer.new({:name => "Fred", :hours => 0, :project_id => 1, :id => nil})
+    volunteer2.save
+    visit("/")
+
+    click_button('alphabetically')
+    expect(page).to have_content('Fred')
+  end
+end
+
 describe('search projects by name', {:type => :feature}) do
   it('allows a user search projects by name') do
     @project1 = Project.new({:name => 'Riparian Restoration', :id => nil})
